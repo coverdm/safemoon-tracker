@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "projects": {
+    "safemoon": {
+      "projectType": "application",
+      "root": "apps/safemoon",
+      "sourceRoot": "apps/safemoon/src",
+      "prefix": "safemoon",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/safemoon",
+            "index": "apps/safemoon/src/index.html",
+            "main": "apps/safemoon/src/main.ts",
+            "polyfills": "apps/safemoon/src/polyfills.ts",
+            "tsConfig": "apps/safemoon/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/safemoon/src/favicon.ico",
+              "apps/safemoon/src/assets"
+            ],
+            "styles": ["apps/safemoon/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/safemoon/src/environments/environment.ts",
+                  "with": "apps/safemoon/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "safemoon:build:production"
+            },
+            "development": {
+              "browserTarget": "safemoon:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "safemoon:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/safemoon/src/**/*.ts",
+              "apps/safemoon/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/safemoon"],
+          "options": {
+            "jestConfig": "apps/safemoon/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "safemoon-e2e": {
+      "root": "apps/safemoon-e2e",
+      "sourceRoot": "apps/safemoon-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/safemoon-e2e/cypress.json",
+            "tsConfig": "apps/safemoon-e2e/tsconfig.e2e.json",
+            "devServerTarget": "safemoon:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "safemoon:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/safemoon-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "safemoon"
+}
