@@ -1,0 +1,23 @@
+<nav>
+  <div class="background"></div>
+
+  <header>
+    <h1>
+      Safemoon
+    </h1>
+    <span>Tracker</span>
+  </header>
+
+  <app-divider></app-divider>
+
+  <ul>
+
+    <li *ngFor="let item of items">
+      <a [routerLink]="[item?.route || '']">
+        <i [ngClass]="item?.icon || ''"></i>
+        {{item?.title}}
+      </a>
+    </li>
+
+  </ul>
+</nav>

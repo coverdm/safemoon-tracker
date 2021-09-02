@@ -1,0 +1,45 @@
+app-form-field {
+  margin-bottom: 25px;
+  display: block;
+}
+
+.control-group {
+  display: flex;
+  app-form-field {
+    flex: 1;
+  }
+  button {
+    margin-left: 20px;
+    &.app-btn {
+      width: 200px;
+    }
+  }
+}
+
+.section-overlay {
+  width: 700px;
+  margin: 0 auto;
+}
+
+app-divider {
+  display: block;
+  margin: 25px 0;
+}
+
+.results {
+  .item {
+    display: flex;
+    padding: 20px 0;
+    &-label {
+      display: block;
+      width: 250px;
+    }
+    &-value {
+
+    }
+  }
+}
+
+h2 {
+  font-size: 18px;
+}

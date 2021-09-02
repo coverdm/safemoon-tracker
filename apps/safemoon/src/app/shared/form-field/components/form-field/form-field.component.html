@@ -1,0 +1,45 @@
+<div class="form-field-wrapper">
+
+  <div class="form-field-flex">
+    <div class="form-field-outline">
+      <div class="form-field-outline-start"></div>
+      <div class="form-field-outline-gap"></div>
+      <div class="form-field-outline-end"></div>
+    </div>
+
+    <div class="form-field">
+
+      <div class="form-field-prefix" *ngIf="prefix">
+        <ng-content select="[appFormFieldPrefix]"></ng-content>
+      </div>
+
+      <div class="form-field-infix">
+
+        <ng-content></ng-content>
+
+        <div class="form-field-label-wrapper">
+          <label
+            class="form-field-label"
+            [for]="control.id">
+            <ng-content select="app-label"></ng-content>
+            <span class="required" *ngIf="control.required">*</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-field-suffix" *ngIf="suffix">
+        <ng-content select="[appFormFieldSuffix]"></ng-content>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-field-hint" *ngIf="hint">
+    <ng-content select="app-hint"></ng-content>
+  </div>
+
+  <div class="form-field-error" *ngIf="error">
+    <ng-content select="app-error"></ng-content>
+  </div>
+
+</div>

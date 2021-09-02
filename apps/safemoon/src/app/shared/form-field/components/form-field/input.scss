@@ -1,0 +1,17 @@
+@import "../../../../core/themes/variables";
+
+.app-input-element {
+  border: none;
+  height: 100%;
+  width: calc(100% - 8px);
+  padding: 0 0 0 5px;
+  background: transparent;
+  color: #fff;
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    background: transparent;
+  }
+}

@@ -1,0 +1,88 @@
+@import "typography";
+@import "variables";
+@import "button";
+
+.fas {
+  font-size: 18px;
+}
+
+html body {
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+.app-icon {
+  margin: 0 3px;
+}
+
+.spinner-border {
+  display: inline-block;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    vertical-align: text-bottom;
+    border: .25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spin .75s linear infinite;
+    animation: spin .75s linear infinite;
+    margin-right: 5px;
+  }
+
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.app-overlay-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  pointer-events: auto;
+  transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0;
+  background-color: rgba(0,0,0,0.25);
+}
+
+@mixin app-modal-container-base {
+  padding: 30px;
+  display: inline-block;
+  background-color: $modal-container-background-color;
+  border-radius: 5px;
+}
+
+.app-modal-container-sm {
+  @include app-modal-container-base;
+  min-width: 540px;
+  max-width: 540px;
+}
+
+.app-modal-container-lg {
+  @include app-modal-container-base;
+  min-width: 720px;
+  max-width: 720px;
+}
+
+.app-modal-container-xl {
+  @include app-modal-container-base;
+  min-width: 1140px;
+  max-width: 1140px;
+}
+
+.app-error {
+  font-size: 12px;
+  color: $danger-color;
+}

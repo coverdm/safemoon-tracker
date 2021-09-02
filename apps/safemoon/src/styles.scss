@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('./assets/style.css');
+@import './apps/safemoon/src/app/core/themes/main-theme.scss';
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+  background: #1E2129;
+  color: #fff;
+}

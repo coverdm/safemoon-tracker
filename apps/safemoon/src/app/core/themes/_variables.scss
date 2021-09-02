@@ -1,0 +1,54 @@
+/////////// DEFAULT_VARIABLES ///////////
+
+$label-color: #fff !default;
+$font-family: 'Montserrat', sans-serif;
+$font-size: 16px;
+$font-color: #000;
+
+$primary-color: #00A79D;
+$danger-color: rgb(137, 27, 27);
+$disabled-color: rgb(239, 239, 239);
+$warning-color: rgb(140, 109, 31);
+$success-color: rgb(37, 95, 49);
+$secondary-color: rgb(56,61,65);
+$info-color: rgb(12,84,96);
+
+$modal-container-background-color: white;
+
+/////////////////////////////////////////
+
+$hint-color: rgba(0,0,0,.6) !default;
+$input-height: 40px !default;
+$input-border-color: rgba(173, 181, 189, 1) !default;
+$input-rounded: 5px !default;
+$border-color--focused: #006bc9;
+
+///////////// BADGE ////////////////////
+
+$badge-padding-right-left: 15px !default;
+$badge-padding-top-bottom: 5px !default;
+$badge-padding-icon: 5px !default;
+$badge-rounded: 15px !default;
+
+///////////// RADIO ///////////////////
+
+$radio-border-size: 2px !default;
+$radio-border-rounded: 30px !default;
+$radio-mark-border-color: white !default;
+
+///////////// CHECKBOX /////////////////
+
+$checkbox-border-size: 2px !default;
+$checkbox-border-rounded: 2px !default;
+$checkbox-mark-border-color: white !default;
+
+///////////// TOAST ////////////////////
+
+$toast-border-size: 1px !default;
+$toast-border-rounded: 5px !default;
+$toast-side-rounded: 4px !default;
+$toast-title-font-size: 18px !default;
+$toast-message-font-size: 14px !default;
+$toast-icon-font-color: white !default;
+$toast-icon-rounded: 24px !default;
+$toast-message-font-color: #343a40 !default;

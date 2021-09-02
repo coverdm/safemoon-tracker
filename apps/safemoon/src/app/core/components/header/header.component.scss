@@ -1,0 +1,56 @@
+header {
+  position: fixed;
+  right: 0;
+  width: calc(100% - 252px);
+  height: 112px;
+  color: #fff;
+  top: 0;
+  display: flex;
+  align-items: center;
+
+  .divider-overlay {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    app-divider {
+      width: 95%;
+      margin: auto;
+      display: block;
+    }
+  }
+
+  .route-header {
+    height: 100%;
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+
+    &-icon {
+      margin-right: 10px;
+      font-size: 2rem;
+    }
+    &-text {
+      font-weight: 400;
+    }
+  }
+
+  .current {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    font-size: 14px;
+    &-price, &-volume {
+      display: flex;
+      margin: 3px;
+
+      &-label {
+        width: 150px;
+      }
+    }
+  }
+
+  app-safemoon-ref {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+}

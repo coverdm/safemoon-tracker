@@ -1,0 +1,55 @@
+<div class="section-overlay">
+  <section>
+    <h2>Here you can calculate potential reflections</h2>
+    <form [formGroup]="form">
+      <app-form-field>
+        <input appInputControl formControlName="tokens" (ngModelChange)="onTokenChanged($event)">
+        <app-label>Your safemoon tokens balance</app-label>
+      </app-form-field>
+
+      <div class="control-group">
+        <app-form-field>
+          <input appInputControl formControlName="averagePrice" (ngModelChange)="onAveragePriceChanged($event)">
+          <app-label>Average price</app-label>
+        </app-form-field>
+        <button class="app-btn app-btn-primary">Load current price</button>
+      </div>
+
+      <div class="control-group">
+        <app-form-field>
+          <input appInputControl formControlName="volume" (ngModelChange)="onVolumeChanged($event)">
+          <app-label>Enter 24h volume</app-label>
+        </app-form-field>
+        <button class="app-btn app-btn-primary">Load current volume</button>
+      </div>
+
+      <app-form-field>
+        <input appInputControl formControlName="days" (ngModelChange)="onDaysChanged($event)">
+        <app-label>Enter days in future</app-label>
+      </app-form-field>
+
+    </form>
+
+  </section>
+
+  <app-divider></app-divider>
+
+  <section class="results">
+    <div class="item">
+      <span class="item-label">Current balance</span>
+      <span class="item-value">{{currentBalance$ | async | currency}}</span>
+    </div>
+    <div class="item">
+      <span class="item-label">Reflected tokens per day:</span>
+      <span class="item-value">{{reflectedPerDay$ | async}}</span>
+    </div>
+    <div class="item">
+      <span class="item-label">Balance (in 7days):</span>
+      <span class="item-value">{{futureBalance$ | async | currency}}</span>
+    </div>
+    <div class="item">
+      <span class="item-label">Reflected tokens (in 7days):</span>
+      <span class="item-value">{{futureAmountReflected$ | async | number}}</span>
+    </div>
+  </section>
+</div>
