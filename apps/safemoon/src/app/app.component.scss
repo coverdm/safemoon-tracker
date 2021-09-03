@@ -1,7 +1,58 @@
 main {
-  width: calc(100% - 350px);
-  margin: calc(110px - 1px) 0 0 310px;
+  width: calc(100% - 200px);
+  margin: calc(100px - 0px) 0 0 200px;
   height: calc(100vh - 180px);
   overflow: auto;
   padding: 50px 0 0 0;
+
+  .container {
+    &:before {
+      content: '';
+      width: 142px;
+      height: 142px;
+      position: fixed;
+      bottom: 80px;
+      right: 25px;
+      background: url("../assets/astronaut-bg.svg");
+      background-size: contain;
+    }
+
+  }
+
+}
+
+.disclaimer {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  font-size: 14px;
+  width: 190px;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  main {
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+    margin: 110px 0px 0px 0;
+    padding: 0 25px;
+    box-sizing: border-box;
+    height: calc(100vh - 180px);
+    .container {
+      &:before {
+        display: none;
+      }
+
+    }
+  }
+  .disclaimer {
+    background: #00A79D;
+    width: 100%;
+    display: block;
+    position: fixed;
+    top: 90px;
+    height: 20px;
+    left: 0;
+  }
 }

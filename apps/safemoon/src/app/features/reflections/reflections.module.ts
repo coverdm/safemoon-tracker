@@ -8,9 +8,10 @@ import { DividerModule } from '../../shared/divider/divider.module';
 import { ReflectionCalculatorService } from './services/reflection-calculator.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InputDropdownModule } from '../../shared/input-dropdown/input-dropdown.module';
 
 @NgModule({
-  imports: [ReflectionsRoutingModule, FormFieldModule, InputModule, ButtonModule, DividerModule, CommonModule, ReactiveFormsModule],
+  imports: [ReflectionsRoutingModule, FormFieldModule, InputModule, ButtonModule, DividerModule, CommonModule, ReactiveFormsModule, InputDropdownModule],
   declarations: [ReflectionsComponent],
   providers: [ReflectionCalculatorService]
 })

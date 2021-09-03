@@ -1,8 +1,7 @@
 <header>
-  <div class="route-header">
-    <i class="route-header-icon" [ngClass]="(icon$ | async) || ''"></i>
-    <h2 class="route-header-text">{{title$ | async}}</h2>
-  </div>
+  <h1>
+    <img src='../../../../assets/logo.svg' alt='logo'>
+  </h1>
 
   <div class="current">
     <div class="current-price">
@@ -18,8 +17,5 @@
 
   <ng-content select="app-notification"></ng-content>
   <app-safemoon-ref></app-safemoon-ref>
-  <div class="divider-overlay">
-    <app-divider></app-divider>
-  </div>
 </header>
 
