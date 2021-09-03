@@ -1,21 +1,20 @@
-export const WhaleAddressListConst = [
+export const WHALE_ADDRESS_LIST_TOP_5 = [
   '0x79c4af7c43f500b9ccba9396d079cc03dfcafda1',
   '0x86b695aaa2600668cec754c7827357626b188054',
   '0xdbe831064ae9b8646de09f270eef3f0076ce9def',
   '0x82b7503bffd8aea31aea5ee14fb01959191af45b',
-  '0xf55808ac8291551ed8faf5674449238dff44c041',
+];
+
+export const WHALE_ADDRESS_LIST_TOP_10 = [
   '0x0c8c62a7f883c6e47c8c5790474d4eb8a48924f2',
   '0xd51d1d5503dcff819e214faa66c3b6f0ebb06abe',
   '0xa803fc1c1e83d6389865e1248dc924ed4c6953de',
   '0xafa5ebe249e86127fe7a63e14a0b06b4e42222f8',
-  '0x424c7cde3dcb32ac7951e9c79f2f5f00625c384b',
-  '0x8c7de13ecf6e92e249696defed7aa81e9c93931a',
+];
+
+export const WHALE_ADDRESS_LIST_TOP_15 = [
   '0xb3bcdf8392f56f682e5abcd1a7ae422864d1a0b9',
   '0x97b85b5cf219f4b3b5259431d4b5835334767e6a',
   '0xdee4eb82dc3f8edfd4f9fdd8e3c8579368784f59',
   '0xc71fcd7b8db747b2db06d17955d89a749e5f81f6',
-  '0x33eac50b7faf4b8842a621d0475335693f5d21fe',
-  '0xa91192c48ac959f17bca1df273eea7ed9a2a6390',
-  '0xe6c1c64b9bb1db4ada5a173c8dce803118bfc6c2',
-  '0x0c7a7597361742761134e461b181779d873eed63'
 ];

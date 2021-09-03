@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Whale } from '../schemas/whale.schema';
 import { WhaleRepository } from './whale.repository';
 import { WhaleUpdateDto } from '../dtos/whale-update.dto';
@@ -6,6 +6,8 @@ import { WhaleBtsScanDto } from '../dtos/whale-bts-scan.dto';
 
 @Injectable()
 export class WhaleService {
+
+  private readonly logger = new Logger(WhaleService.name);
 
   constructor(private readonly whaleRepository: WhaleRepository) {
   }
@@ -18,26 +20,13 @@ export class WhaleService {
     return this.whaleRepository.findAll();
   }
 
-  async updateWhale(address: string, whale: WhaleUpdateDto): Promise<Whale> {
-    return this.whaleRepository.findOneAndUpdate({ address }, whale);
-  }
-
-  async updateWhales(whales: WhaleBtsScanDto[]) {
-    whales.forEach(whale => {
-      this.whaleRepository.findOne({ address: whale.account })
-        .then(found => {
-          if (found) {
-            this.whaleRepository.findOneAndUpdate(
-              { address: found.address }, { balance_current: whale.balance }
-            );
-          } else {
-            this.whaleRepository.create({
-              address: whale.account,
-              balance_current: whale.balance,
-              balance_history: whale.balance
-            })
-          }
-        });
+  async updateWhale(address: string, balance: string) {
+    this.logger.debug('########')
+    this.logger.debug(address)
+    this.logger.debug(balance)
+    this.logger.debug('########')
+    await this.whaleRepository.findOneAndUpdate(address, {
+      balance_current: balance
     });
   }
 

@@ -7,10 +7,10 @@ export type WhaleDocument = Whale & Document;
 export class Whale {
 
   @Prop()
-  balance_current: number;
+  balance_current: string;
 
   @Prop()
-  balance_history: number;
+  balance_history: string;
 
   @Prop({unique: true})
   address: string;

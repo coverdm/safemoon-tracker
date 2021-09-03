@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Whale, WhaleDocument } from '../schemas/whale.schema';
 import { FilterQuery, Model } from 'mongoose';
 
 @Injectable()
 export class WhaleRepository {
+  private readonly logger = new Logger(WhaleRepository.name);
 
   constructor(@InjectModel(Whale.name) private whaleModel: Model<WhaleDocument>) {}
 
@@ -21,12 +22,17 @@ export class WhaleRepository {
   }
 
   async create(whale: Whale): Promise<Whale> {
+    this.logger.debug(whale);
     const newWhale = new this.whaleModel(whale);
     return newWhale.save();
   }
 
-  async findOneAndUpdate(whaleFilterQuery: FilterQuery<Whale>, whale: Partial<Whale>): Promise<Whale> {
-    return this.whaleModel.findOneAndUpdate({ whaleFilterQuery }, whale);
+  async findOneAndUpdate(address: string, whale: Partial<Whale>): Promise<Whale> {
+    return this.whaleModel.findOneAndUpdate({ address }, whale, {upsert: true});
+  }
+
+  async findWhaleByAddress(address: string): Promise<Whale> {
+    return this.whaleModel.findOne({ address })
   }
 
 }

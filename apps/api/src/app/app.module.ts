@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { WhalesModule } from './whales/whales.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { StatisticsModule } from './statistics/statistics.module';
 
 @Module({
   imports: [
@@ -12,7 +13,8 @@ import { ScheduleModule } from '@nestjs/schedule';
       'mongodb+srv://dmatuszak:M@tuszak887@cluster0.etwja.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     ),
     ScheduleModule.forRoot(),
-    WhalesModule
+    WhalesModule,
+    StatisticsModule
   ],
   controllers: [AppController],
   providers: [AppService]
