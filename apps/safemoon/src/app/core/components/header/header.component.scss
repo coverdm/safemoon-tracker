@@ -2,7 +2,7 @@ header {
   position: fixed;
   right: 0;
   width: 100%;
-  height: 90px;
+  height: 80px;
   color: #fff;
   top: 0;
   display: flex;
@@ -12,26 +12,43 @@ header {
 
   h1 {
     margin-left: 50px;
+    margin-top: 33px;
   }
 
   .current {
     display: flex;
-    flex-direction: column;
     margin-left: auto;
     font-size: 14px;
+    text-align: center;
     &-price, &-volume {
       display: flex;
       margin: 3px;
+      flex-direction: column;
+    }
 
+    &-price {
       &-label {
         width: 150px;
       }
     }
+
+    &-volume {
+      &-label {
+        width: 100px;
+      }
+    }
+
+  }
+
+  .divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, .2);
+    margin: 0 25px;
   }
 
   app-safemoon-ref {
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 10px;
   }
 }
 
@@ -39,7 +56,7 @@ header {
   header {
     h1 {
       text-align: center;
-      margin: 0 auto;
+      margin: 10px auto 0;
     }
   }
 

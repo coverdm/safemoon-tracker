@@ -1,7 +1,7 @@
 <nav>
   <ul>
     <li *ngFor="let item of items">
-      <a [routerLink]="[item?.route || '']" routerLinkActive='active'>
+      <a [routerLink]="[item?.route || '']" [skipLocationChange]="true" [class.active]="active === item.route">
         <i [ngClass]="item?.icon || ''"></i>
         <span class='router-title'>{{item?.title}}</span>
       </a>

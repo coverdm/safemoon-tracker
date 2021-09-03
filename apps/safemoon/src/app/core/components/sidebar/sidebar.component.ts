@@ -1,4 +1,6 @@
 import { Component, Injectable } from '@angular/core';
+import { ActivationEnd, NavigationStart, Router, RouterEvent } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,10 +9,24 @@ import { Component, Injectable } from '@angular/core';
 })
 export class SidebarComponent {
 
+  active: string;
+
+  constructor(private _router: Router) {
+    _router.events
+      .pipe(
+        filter(event => event instanceof NavigationStart)
+      )
+      .subscribe((event) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        this.active = (event?.url as string).substring(1);
+      });
+  }
+
   items: any[] = [
     {
       title: 'Dashboard',
-      route: 'dashboard',
+      route: '',
       icon: 'icon-dashboard'
     },
     {

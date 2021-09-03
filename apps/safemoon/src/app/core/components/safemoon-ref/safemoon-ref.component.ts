@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   template: `
     <a href="http://safemoon.net">
       <img src="../../../../assets/safemoon-logo.svg" alt="Safemoon logo"/>
-      Safemoon.net
     </a>
   `,
   styles: [
