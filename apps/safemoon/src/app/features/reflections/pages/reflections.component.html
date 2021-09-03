@@ -5,6 +5,9 @@
       <app-form-field>
         <input appInputControl formControlName="tokens" (ngModelChange)="onTokenChanged($event)">
         <app-label>Your safemoon tokens balance</app-label>
+        <app-input-dropdown>
+          <app-input-dropdown-option></app-input-dropdown-option>
+        </app-input-dropdown>
       </app-form-field>
 
       <div class="control-group">
@@ -13,6 +16,7 @@
           <app-label>Average price</app-label>
         </app-form-field>
         <button class="app-btn app-btn-primary">Load current price</button>
+        <button class="app-btn app-btn-primary mobile">Load</button>
       </div>
 
       <div class="control-group">
@@ -21,6 +25,7 @@
           <app-label>Enter 24h volume</app-label>
         </app-form-field>
         <button class="app-btn app-btn-primary">Load current volume</button>
+        <button class="app-btn app-btn-primary mobile">Load</button>
       </div>
 
       <app-form-field>
