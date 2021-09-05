@@ -41,7 +41,7 @@ export class WhaleListenerScheduler {
       .pipe()
       .subscribe(value => {
     // @ts-ignore
-        this.whaleService.updateWhale(value.result[0].account, value.result[0].balance)
+        this.whaleService.updateCurrentBalance(value.result[0].account, value.result[0].balance)
       });
   }
 

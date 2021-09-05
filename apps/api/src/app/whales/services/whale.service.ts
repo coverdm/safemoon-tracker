@@ -20,17 +20,12 @@ export class WhaleService {
     return this._whaleRepository.findAll();
   }
 
-  async updateWhale(address: string, balance: string) {
-    await this._whaleRepository.findOneAndUpdate(address, {
-      balance_current: balance
-    });
+  async updateCurrentBalance(address: string, balance: string) {
+    await this._whaleRepository.updateCurrentBalance(address, balance);
   }
 
   async updateWhalesHistory() {
-    const whales: Whale[] = await this._whaleRepository.findAll();
-    whales.forEach(whale => {
-      this._whaleRepository.findOneAndUpdate(whale.address, {balance_history: whale.balance_current}).then()
-    });
+    this._whaleRepository.rewriteToNewDay().then()
   }
 
 }

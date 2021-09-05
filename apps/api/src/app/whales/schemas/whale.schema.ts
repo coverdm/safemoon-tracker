@@ -6,14 +6,11 @@ export type WhaleDocument = Whale & Document;
 @Schema()
 export class Whale {
 
-  @Prop()
-  balance_current: string;
-
-  @Prop()
-  balance_history: string;
-
   @Prop({unique: true})
   address: string;
+
+  @Prop()
+  balance: Array<{current: string, date: string}>;
 }
 
 export const WhaleSchema = SchemaFactory.createForClass(Whale)
