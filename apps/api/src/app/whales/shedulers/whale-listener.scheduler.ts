@@ -1,6 +1,6 @@
 import { HttpService, Injectable, Logger } from '@nestjs/common';
-import { Cron, CronExpression } from '@nestjs/schedule';
-import { first, map, take } from 'rxjs/operators';
+import { Cron } from '@nestjs/schedule';
+import { map } from 'rxjs/operators';
 import {
   WHALE_ADDRESS_LIST_TOP_10,
   WHALE_ADDRESS_LIST_TOP_15,
@@ -40,15 +40,15 @@ export class WhaleListenerScheduler {
     merge(...addresses.map(address => this._getAccountBalance(address)))
       .pipe()
       .subscribe(value => {
-    // @ts-ignore
-        this.whaleService.updateCurrentBalance(value.result[0].account, value.result[0].balance)
+        // @ts-ignore
+        this.whaleService.updateCurrentBalance(value.result[0].account, value.result[0].balance);
       });
   }
 
-  private _getAccountBalance(address: string): Observable<{status: string, message: string, result: string}> {
-    return this.httpService.get<{status: string, message: string, result: string}>(
+  private _getAccountBalance(address: string): Observable<{ status: string, message: string, result: string }> {
+    return this.httpService.get<{ status: string, message: string, result: string }>(
       `${this.api_host}?module=account&action=balancemulti&contractaddress=${this.SafeMoon_Address}&address=${address}&tag=latest&apikey=${this.api_key}`
-    ).pipe(map(response => response.data))
+    ).pipe(map(response => response.data));
   }
 
 }

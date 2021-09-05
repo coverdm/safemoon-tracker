@@ -2,7 +2,6 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Whale, WhaleDocument } from '../schemas/whale.schema';
 import { FilterQuery, Model, Schema } from 'mongoose';
-import Date = module
 
 @Injectable()
 export class WhaleRepository {
