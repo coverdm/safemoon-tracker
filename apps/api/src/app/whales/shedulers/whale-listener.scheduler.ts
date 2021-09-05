@@ -22,19 +22,16 @@ export class WhaleListenerScheduler {
 
   @Cron('35 * * * * *')
   handleTop5() {
-    this.logger.warn('############## Check for whale updates TOP 5 ##############');
     this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_5);
   }
 
   @Cron('40 * * * * *')
   handleTop10() {
-    this.logger.warn('############## Check for whale updates TOP 10 ##############');
     this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_10);
   }
 
   @Cron('45 * * * * *')
   handleTop15() {
-    this.logger.warn('############## Check for whale updates TOP 15 ##############');
     this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_15);
   }
 

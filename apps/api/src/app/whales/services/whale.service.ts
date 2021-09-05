@@ -21,10 +21,6 @@ export class WhaleService {
   }
 
   async updateWhale(address: string, balance: string) {
-    this.logger.debug('########')
-    this.logger.debug(address)
-    this.logger.debug(balance)
-    this.logger.debug('########')
     await this._whaleRepository.findOneAndUpdate(address, {
       balance_current: balance
     });
