@@ -18,17 +18,6 @@ export class WhaleController {
   async getWhales(): Promise<WhaleDto[]> {
     return this.whaleService.getWhales()
       .then(whales => {
-
-        if (isNaN((+whales[0].balance_history))) {
-          whales[0].balance_current.toString();
-          this.logger.log(`isNan: ${whales[0].balance_current.toString()}`);
-        } else {
-          const current: number = +whales[0].balance_current
-          const history: number = +whales[0].balance_history;
-          this.logger.log(current);
-          this.logger.log(history);
-          this.logger.log((current + history).toString());
-        }
         return whales.map(whale => new WhaleDto(whale));
       })
   }

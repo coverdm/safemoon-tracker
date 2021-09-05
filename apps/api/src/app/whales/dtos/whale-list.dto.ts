@@ -12,7 +12,7 @@ export class WhaleDto {
     } else {
       const current: number = +whale.balance_current
       const history: number = +whale.balance_history;
-      this.change = (current + history).toString();
+      this.change = (current - history).toString();
     }
   }
 }
