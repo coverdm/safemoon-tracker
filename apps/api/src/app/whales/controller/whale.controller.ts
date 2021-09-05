@@ -21,4 +21,10 @@ export class WhaleController {
         return whales.map(whale => new WhaleDto(whale));
       })
   }
+
+
+  @Get('raw')
+  async getWhalesRaw(): Promise<any> {
+    return this.whaleService.getWhales();
+  }
 }
