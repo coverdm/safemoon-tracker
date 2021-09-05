@@ -1,0 +1,54 @@
+.overlay {
+  padding: 0 100px;
+
+  .top-whales {
+    max-width: 700px;
+
+    .nav {
+      display: inline-flex;
+      margin-top: 25px;
+      a {
+        padding: 12px;
+        display: block;
+        border-bottom: 3px solid rgba(6, 141, 135, 0.2);
+        &.active {
+          border-bottom-color: #068D87;
+        }
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+      }
+    }
+
+    app-alert {
+      margin-bottom: 25px;
+      display: block;
+    }
+
+    .whale-alert-template {
+      display: flex;
+      width: 100%;
+
+      .label {
+        color: rgba(255, 255, 255, .5);
+        font-size: 12px;
+      }
+
+      .value {
+        font-size: 14px;
+      }
+
+      .balance {
+        margin-left: auto;
+        margin-right: 25px;
+      }
+
+    }
+  }
+
+}

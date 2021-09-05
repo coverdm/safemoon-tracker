@@ -52,13 +52,17 @@ nav {
       justify-content: center;
       li {
 
-        &:nth-child(4), &:nth-child(5) {
+        &:nth-child(6), &:nth-child(5) {
           display: none;
         }
 
-        a {
+          a {
           padding: 19px 30px;
           margin: 0;
+
+          &:hover {
+            color: #fff;
+          }
 
           &:focus {
             background: none;

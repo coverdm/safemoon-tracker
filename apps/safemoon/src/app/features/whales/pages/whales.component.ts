@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
-import { HeaderService } from '../../../core/services/header.service';
+import { Component, OnInit } from '@angular/core';
+import { WhalesFacadeService } from '../services/whales-facade.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-whales',
   templateUrl: 'whales.component.html',
   styleUrls: ['whales.component.scss']
 })
-export class WhalesComponent {
+export class WhalesComponent implements OnInit {
 
-  constructor(private _headerService: HeaderService) {
-    this._headerService.title$.next('Whales');
-    this._headerService.icon$.next('icon-whale')
+  data$: Observable<any | undefined>;
+  loading$: Observable<boolean>;
+
+  constructor(private _whalesFacadeService: WhalesFacadeService) {
+    this.data$ = _whalesFacadeService.state.data$;
+    this.loading$ = _whalesFacadeService.state.loading$;
+  }
+
+  ngOnInit(): void {
+    this._whalesFacadeService.loadWhales();
   }
 
 }
