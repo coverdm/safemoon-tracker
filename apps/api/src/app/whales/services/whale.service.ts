@@ -9,15 +9,15 @@ export class WhaleService {
 
   private readonly logger = new Logger(WhaleService.name);
 
-  constructor(private readonly whaleRepository: WhaleRepository) {
+  constructor(private readonly _whaleRepository: WhaleRepository) {
   }
 
   async getWhaleById(whaleId: string): Promise<Whale> {
-    return this.whaleRepository.findOne({ id: whaleId });
+    return this._whaleRepository.findOne({ id: whaleId });
   }
 
   async getWhales(): Promise<Whale[]> {
-    return this.whaleRepository.findAll();
+    return this._whaleRepository.findAll();
   }
 
   async updateWhale(address: string, balance: string) {
@@ -25,8 +25,15 @@ export class WhaleService {
     this.logger.debug(address)
     this.logger.debug(balance)
     this.logger.debug('########')
-    await this.whaleRepository.findOneAndUpdate(address, {
+    await this._whaleRepository.findOneAndUpdate(address, {
       balance_current: balance
+    });
+  }
+
+  async updateWhalesHistory() {
+    const whales: Whale[] = await this._whaleRepository.findAll();
+    whales.forEach(whale => {
+      this._whaleRepository.findOneAndUpdate(whale.address, {balance_history: whale.balance_current}).then()
     });
   }
 

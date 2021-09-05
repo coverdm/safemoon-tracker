@@ -6,6 +6,7 @@ import { WhaleRepository } from './services/whale.repository';
 import { WhaleService } from './services/whale.service';
 import { WhaleListenerScheduler } from './shedulers/whale-listener.scheduler';
 import { HttpModule } from '@nestjs/axios';
+import { WhaleHistoryScheduler } from './shedulers/whale-history.scheduler';
 
 @Module({
   imports: [
@@ -13,6 +14,6 @@ import { HttpModule } from '@nestjs/axios';
     HttpModule
   ],
   controllers: [WhaleController],
-  providers: [WhaleRepository, WhaleService, WhaleListenerScheduler]
+  providers: [WhaleRepository, WhaleService, WhaleListenerScheduler, WhaleHistoryScheduler]
 })
 export class WhalesModule {}
