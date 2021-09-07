@@ -23,4 +23,16 @@ export class WhalesFacadeService {
       );
   }
 
+  loadDailyReport() {
+    this._state.dailyReportLoading$.next(true);
+    this._api.getDailyReport()
+      .pipe(
+        first(),
+        finalize(() => this._state.dailyReportLoading$.next(false))
+      )
+      .subscribe(
+        response => this._state.dailyReport$.next(response)
+      );
+  }
+
 }

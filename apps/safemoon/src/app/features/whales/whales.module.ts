@@ -7,9 +7,11 @@ import { WhalesStateService } from './services/whales-state.service';
 import { WhalesFacadeService } from './services/whales-facade.service';
 import { CommonModule } from '@angular/common';
 import { AlertModule } from '../../shared/alert/alert.module';
+import { TabsModule } from '../../shared/tabs/tabs.module';
+import { BigNumberModule } from '../../shared/big-number/big-number.module';
 
 @NgModule({
-  imports: [WhalesRoutingModule, HttpClientModule, CommonModule, AlertModule],
+  imports: [WhalesRoutingModule, HttpClientModule, CommonModule, AlertModule, TabsModule, BigNumberModule],
   declarations: [WhalesComponent],
   providers: [WhalesApiService, WhalesStateService, WhalesFacadeService],
 })

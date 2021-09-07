@@ -1,8 +1,9 @@
 .overlay {
   padding: 0 100px;
+  margin: auto;
+  width: 1200px;
 
   .top-whales {
-    max-width: 700px;
 
     .nav {
       display: inline-flex;
@@ -15,6 +16,11 @@
           border-bottom-color: #068D87;
         }
       }
+    }
+
+    app-tab-group {
+      margin: 25px 0 45px 0;
+      display: block;
     }
 
     ul {
@@ -51,4 +57,75 @@
     }
   }
 
+}
+
+.sr-only {
+  visibility: hidden;
+  height: 0;
+  display: block;
+}
+
+.layer {
+  display: flex;
+  width: 100%;
+  padding-top: 45px;
+  flex-direction: row-reverse;
+
+  .top-whales {
+    width: 1000px;
+  }
+
+  .widgets {
+    width: 410px;
+  }
+
+  .widgets .sticky-layer {
+    position: sticky;
+    justify-content: space-around;
+    top: 0;
+
+    .widget {
+      width: 80%;
+      height: 150px;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      color: #fff;
+      background: rgb(47 47 47 / 12%);
+      border-radius: 5px;
+      border: 1px solid rgb(255 255 255 / 48%);
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto 25px;
+      overflow: hidden;
+
+      .divider {
+        width: calc(100% - 20px);
+        margin: 20px auto;
+        background: rgba(255,255,255,0.1);
+        height: 1px;
+      }
+
+      .widget-header {
+        font-size: 1.6rem;
+        position: relative;
+
+
+        .icon-whale {
+          margin-right: 10px;
+          position: absolute;
+          left: -30px;
+          font-size: 100px;
+          top: -60px;
+          transform: rotate(
+              45deg
+          );
+          color: #737373;
+        }
+
+      }
+
+    }
+
+  }
 }

@@ -4,5 +4,8 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class WhalesStateService {
   data$: BehaviorSubject<any | undefined> = new BehaviorSubject<any>(undefined);
+  dailyReport$: BehaviorSubject<any | undefined> = new BehaviorSubject<any>(undefined);
+
   loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  dailyReportLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 }

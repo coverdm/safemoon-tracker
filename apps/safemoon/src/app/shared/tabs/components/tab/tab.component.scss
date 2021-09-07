@@ -1,0 +1,21 @@
+button {
+  padding: 12px;
+  display: block;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  border-bottom: 3px solid rgba(6, 141, 135, 0.2);
+  font-family: "Montserrat", sans-serif;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.active {
+    border-bottom-color: #068D87;
+  }
+  &:disabled {
+    color: #969696;
+  }
+}

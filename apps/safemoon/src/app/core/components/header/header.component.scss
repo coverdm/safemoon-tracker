@@ -24,6 +24,11 @@ header {
       display: flex;
       margin: 3px;
       flex-direction: column;
+
+      &-value {
+        color: #00a79d;
+      }
+
     }
 
     &-price {
@@ -58,6 +63,10 @@ header {
       text-align: center;
       margin: 10px auto 0;
     }
+  }
+
+  .divider {
+    display: none;
   }
 
   header .current, app-safemoon-ref {
