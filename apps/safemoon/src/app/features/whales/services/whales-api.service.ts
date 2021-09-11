@@ -9,8 +9,7 @@ export class WhalesApiService {
   constructor(private _httpClient: HttpClient) {}
 
   getWhales(): Observable<any> {
-    // return this._httpClient.get(`http://46.41.136.95:3333/api/whales`);
-    return of(WHALE_TEST_LIST)
+    return this._httpClient.get(`http://localhost:3333/api/whales`);
   }
 
   getDailyReport(): Observable<any> {

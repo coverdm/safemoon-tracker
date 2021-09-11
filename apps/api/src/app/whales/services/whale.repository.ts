@@ -23,13 +23,11 @@ export class WhaleRepository {
   }
 
   async create(whale: Whale): Promise<Whale> {
-    this.logger.debug(whale);
     const newWhale = new this.whaleModel(whale);
     return newWhale.save();
   }
 
   async findOneAndUpdate(address: string, whale: Partial<Whale>): Promise<Whale> {
-    this.logger.debug('###################findOneAndUpdate########################')
     return this.whaleModel.findOneAndUpdate({ address }, whale);
   }
 

@@ -39,15 +39,22 @@ export class WhaleListenerScheduler {
   private getWhalesBalance(addresses: string[]) {
     merge(...addresses.map(address => this._getAccountBalance(address)))
       .subscribe(value => {
+        this.logger.debug(value);
         // @ts-ignore
-        this.whaleService.updateCurrentBalance(value.result[0].account, value.result[0].balance).then()
+        this.whaleService.updateCurrentBalance(value.address, value.result).then()
       });
   }
 
-  private _getAccountBalance(address: string): Observable<{ status: string, message: string, result: string }> {
+  private _getAccountBalance(address: string): Observable<{ status: string, message: string, result: any }> {
+    //https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3&address=0x86b695aaa2600668cec754c7827357626b188054&apikey=C4XIMWNKCHQVZNN5FJV9X9BB7HZDJ7KS28
     return this.httpService.get<{ status: string, message: string, result: string }>(
-      `${this.api_host}?module=account&action=balancemulti&contractaddress=${this.SafeMoon_Address}&address=${address}&tag=latest&apikey=${this.api_key}`
-    ).pipe(map(response => response.data));
+      `${this.api_host}?module=account&action=tokenbalance&contractaddress=${this.SafeMoon_Address}&address=${address}&tag=latest&apikey=${this.api_key}`
+    ).pipe(map(response => {
+      return {
+        ...response.data,
+        address
+      }
+    }));
   }
 
 }
