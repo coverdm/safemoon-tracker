@@ -20,20 +20,20 @@ export class WhaleListenerScheduler {
   constructor(private httpService: HttpService, private whaleService: WhaleService) {
   }
 
-  @Cron(CronExpression.EVERY_10_SECONDS)
+  @Cron('35 * * * * *')
   handleTop5() {
     this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_5);
   }
-  //
-  // @Cron('40 * * * * *')
-  // handleTop10() {
-  //   this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_10);
-  // }
-  //
-  // @Cron('45 * * * * *')
-  // handleTop15() {
-  //   this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_15);
-  // }
+
+  @Cron('40 * * * * *')
+  handleTop10() {
+    this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_10);
+  }
+
+  @Cron('45 * * * * *')
+  handleTop15() {
+    this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_15);
+  }
 
 
   private getWhalesBalance(addresses: string[]) {
