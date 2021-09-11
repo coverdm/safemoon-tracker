@@ -10,7 +10,7 @@ import { StatisticsModule } from './statistics/statistics.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb://46.41.136.95:27017/local'
+      'mongodb+srv://dmatuszak:M@tuszak887@cluster0.etwja.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     ),
     ScheduleModule.forRoot(),
     WhalesModule,

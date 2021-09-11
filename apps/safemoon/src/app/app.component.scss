@@ -1,6 +1,6 @@
 main {
-  width: calc(100% - 200px);
-  margin: calc(100px - 17px) 0 0 200px;
+  width: calc(100% - 260px);
+  margin: calc(100px - 17px) 0 0 260px;
   height: calc(100vh - 133px);
   overflow: auto;
   padding: 50px 0 0 0;
@@ -20,6 +20,9 @@ main {
   }
 
   .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
     &:before {
       content: '';
       width: 142px;

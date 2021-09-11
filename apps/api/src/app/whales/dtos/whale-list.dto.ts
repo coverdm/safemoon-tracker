@@ -5,16 +5,12 @@ export class WhaleDto {
   balance: string;
   previous: string;
   change: string;
+
   constructor(whale: Whale) {
     this.address = whale.address;
-    this.balance = whale.balance.pop().current;
-    this.previous = whale.balance.pop().current;
-    if (isNaN((+this.previous))) {
-      this.change = this.previous.toString();
-    } else {
-      const current: number = +this.balance
-      const history: number = +this.previous;
-      this.change = (current - history).toString();
-    }
+    const [first, second] = whale.balance;
+    this.balance = BigInt(first.current).toString();
+    this.previous = BigInt(second?.current || '0').toString();
+    this.change = (BigInt(this.balance) - BigInt(this.previous)).toString();
   }
 }

@@ -1,8 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Whale } from '../schemas/whale.schema';
 import { WhaleRepository } from './whale.repository';
-import { WhaleUpdateDto } from '../dtos/whale-update.dto';
-import { WhaleBtsScanDto } from '../dtos/whale-bts-scan.dto';
 
 @Injectable()
 export class WhaleService {
@@ -13,19 +11,30 @@ export class WhaleService {
   }
 
   async getWhaleById(whaleId: string): Promise<Whale> {
-    return this._whaleRepository.findOne({ id: whaleId });
+    return this._whaleRepository.findOne(whaleId);
   }
 
   async getWhales(): Promise<Whale[]> {
+    const a = await this._whaleRepository.findAll();
+    // this.logger.debug(a);
     return this._whaleRepository.findAll();
   }
 
-  async updateCurrentBalance(address: string, balance: string) {
-    await this._whaleRepository.updateCurrentBalance(address, balance);
+  async updateWhalesHistory() {
+    // this._whaleRepository.rewriteToNewDay().then()
   }
 
-  async updateWhalesHistory() {
-    this._whaleRepository.rewriteToNewDay().then()
+  async updateCurrentBalance(address: string, balance: string) {
+    const whale: Whale = await this._whaleRepository.findOne(address);
+    if (whale) {
+      let updatingBalanceRef: { current: string, date: string } = whale.balance.pop();
+      updatingBalanceRef = {...updatingBalanceRef, current: balance };
+      whale.balance = [...whale.balance, updatingBalanceRef];
+      return this._whaleRepository.findOneAndUpdate(address, whale);
+    } else {
+      const newBalance: { current: string, date: string }[] = [{current: balance, date: new Date().toString()}];
+      return this._whaleRepository.create({address, balance: newBalance});
+    }
   }
 
 }

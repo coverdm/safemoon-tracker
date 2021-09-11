@@ -22,9 +22,14 @@ export class WhaleController {
       })
   }
 
+  @Get(':id')
+  findOne(@Param() params): string {
+    console.log(params.id);
+    return `This action returns a #${params.id} cat`;
+  }
 
   @Get('raw')
-  async getWhalesRaw(): Promise<any> {
+  async getWhalesRaw(): Promise<Whale[]> {
     return this.whaleService.getWhales();
   }
 }

@@ -1,5 +1,5 @@
 import { HttpService, Injectable, Logger } from '@nestjs/common';
-import { Cron } from '@nestjs/schedule';
+import { Cron, CronExpression } from '@nestjs/schedule';
 import { map } from 'rxjs/operators';
 import {
   WHALE_ADDRESS_LIST_TOP_10,
@@ -20,28 +20,27 @@ export class WhaleListenerScheduler {
   constructor(private httpService: HttpService, private whaleService: WhaleService) {
   }
 
-  @Cron('35 * * * * *')
+  @Cron(CronExpression.EVERY_10_SECONDS)
   handleTop5() {
     this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_5);
   }
-
-  @Cron('40 * * * * *')
-  handleTop10() {
-    this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_10);
-  }
-
-  @Cron('45 * * * * *')
-  handleTop15() {
-    this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_15);
-  }
+  //
+  // @Cron('40 * * * * *')
+  // handleTop10() {
+  //   this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_10);
+  // }
+  //
+  // @Cron('45 * * * * *')
+  // handleTop15() {
+  //   this.getWhalesBalance(WHALE_ADDRESS_LIST_TOP_15);
+  // }
 
 
   private getWhalesBalance(addresses: string[]) {
     merge(...addresses.map(address => this._getAccountBalance(address)))
-      .pipe()
       .subscribe(value => {
         // @ts-ignore
-        this.whaleService.updateCurrentBalance(value.result[0].account, value.result[0].balance);
+        this.whaleService.updateCurrentBalance(value.result[0].account, value.result[0].balance).then()
       });
   }
 
