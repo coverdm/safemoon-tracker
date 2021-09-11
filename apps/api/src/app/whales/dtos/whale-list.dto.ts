@@ -9,7 +9,7 @@ export class WhaleDto {
   constructor(whale: Whale) {
     this.address = whale.address;
     const [first, second] = whale.balance;
-    this.balance = BigInt(first.current).toString();
+    this.balance = BigInt(first?.current || '').toString();
     this.previous = BigInt(second?.current || '0').toString();
     this.change = (BigInt(this.balance) - BigInt(this.previous)).toString();
   }
