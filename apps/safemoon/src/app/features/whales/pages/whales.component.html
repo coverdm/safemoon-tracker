@@ -46,26 +46,34 @@
       <app-tab [disabled]="true" [id]="'exchanges'">With exchanges</app-tab>
     </app-tab-group>
 
-    <h3>Top 10</h3>
+    <h3>Top 25</h3>
     <ul>
-      <li *ngFor="let whale of data$ | async">
-        <app-alert [type]="whale.change[0] === '-' ? 'danger' : 'success'">
-          <div class="whale-alert-template">
-            <i></i>
-            <div class="address">
-              <div class="label">Address</div>
-              <div class="value">{{whale.address}}</div>
-            </div>
-            <div class="balance">
-              <div class="label">Balance</div>
-              <div class="value">{{whale.balance | appBigNumber}}</div>
-            </div>
-            <div class="change">
-              <div class="label">Change</div>
-              <div class="value">{{whale.change | appBigNumber}}</div>
-            </div>
+      <li *ngFor="let whale of data$ | async; let i = index">
+
+        <div class="whale-row">
+          <div class="position">
+            <span class="position-current">{{i + 1}}</span>
+            <span class="position-change position-up">(+4)</span>
           </div>
-        </app-alert>
+          <app-alert [type]="whale.change[0] === '-' ? 'danger' : 'success'">
+            <div class="whale-alert-template">
+              <i></i>
+              <div class="address">
+                <div class="label">Address</div>
+                <div class="value">{{whale.address}}</div>
+              </div>
+              <div class="balance">
+                <div class="label">Balance</div>
+                <div class="value">{{whale.balance | appBigNumber}}</div>
+              </div>
+              <div class="change">
+                <div class="label">Change</div>
+                <div class="value">{{whale.change | appBigNumber}}</div>
+              </div>
+            </div>
+          </app-alert>
+        </div>
+
       </li>
     </ul>
   </section>

@@ -19,7 +19,7 @@ export class BurnWalletCheckerSchedule {
 
   @Cron(CronExpression.EVERY_10_SECONDS)
   handleCrop() {
-    this.logger.debug('Check for burn wallet');
+    // this.logger.debug('Check for burn wallet');
     // this.getBurnWallet();
   }
 

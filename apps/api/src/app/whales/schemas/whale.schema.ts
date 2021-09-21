@@ -11,6 +11,10 @@ export class Whale {
 
   @Prop()
   balance: Array<{current: string, date: string}>;
+
+  @Prop()
+  position: Array<{value: number, date: string}>;
+
 }
 
 export const WhaleSchema = SchemaFactory.createForClass(Whale)

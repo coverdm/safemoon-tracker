@@ -8,9 +8,8 @@ export class WhaleHistoryScheduler {
 
   constructor(private _whaleService: WhaleService) {}
 
-  @Cron('25 * * * * *')
   setWhalesHistory() {
     this.logger.warn('############## Set history of whales ##############');
-    // this._whaleService.updateWhalesHistory().then()
+    this._whaleService.updateWhalesHistory().then()
   }
 }

@@ -18,13 +18,14 @@ export class WhaleController {
   async getWhales(): Promise<WhaleDto[]> {
     return this.whaleService.getWhales()
       .then(whales => {
-        return whales.map(whale => new WhaleDto(whale));
+        const whalesDto: WhaleDto[] = whales.map(whale => new WhaleDto(whale));
+        whalesDto.sort((a: WhaleDto, b: WhaleDto) => (+b.balance - +a.balance));
+        return whalesDto;
       })
   }
 
   @Get(':id')
   findOne(@Param() params): string {
-    console.log(params.id);
     return `This action returns a #${params.id} cat`;
   }
 

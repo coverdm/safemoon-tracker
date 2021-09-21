@@ -12,7 +12,7 @@ export class PriceCheckerSchedule {
 
   @Cron(CronExpression.EVERY_30_SECONDS)
   handleCrop() {
-    this.logger.debug('Checking price');
+    // this.logger.debug('Checking price');
     // this.updatePrice();
   }
 

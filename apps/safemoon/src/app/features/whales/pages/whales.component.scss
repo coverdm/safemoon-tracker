@@ -27,12 +27,31 @@
 
     li {
       list-style: none;
-    }
-  }
 
-  app-alert {
-    margin-bottom: 25px;
-    display: block;
+      .whale-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+
+        .position {
+          margin-right: 20px;
+
+          &-up {
+            color: rgb(59, 238, 112);
+          }
+
+          &-change {
+            margin-left: 5px;
+          }
+
+        }
+
+        app-alert {
+          width: 100%;
+        }
+      }
+
+    }
   }
 
   .whale-alert-template {

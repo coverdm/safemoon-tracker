@@ -39,7 +39,6 @@ export class WhaleListenerScheduler {
   private getWhalesBalance(addresses: string[]) {
     merge(...addresses.map(address => this._getAccountBalance(address)))
       .subscribe(value => {
-        this.logger.debug(value);
         // @ts-ignore
         this.whaleService.updateCurrentBalance(value.address, value.result).then()
       });
